@@ -1,0 +1,24 @@
+extensions:
+  health_check:
+
+receivers:
+  filelog:
+    include:
+      - /homeassistant_config/*.log
+      - /all_addon_configs/**/*.log
+
+processors:
+  batch:
+
+exporters:
+  debug:
+    verbosity: detailed
+
+service:
+  pipelines:
+    logs:
+      receivers: [filelog]
+      processors: [batch]
+      exporters: [debug]
+
+  extensions: [health_check]

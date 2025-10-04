@@ -11,5 +11,8 @@ arch:
 map:
   - type: homeassistant_config
     read_only: True
+  - type: all_addon_configs
+    read_only: True
   - type: addon_config
     read_only: True
+    path: /etc/otelcol-contrib/

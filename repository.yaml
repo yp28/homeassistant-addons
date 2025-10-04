@@ -1,4 +1,3 @@
-# https://developers.home-assistant.io/docs/add-ons/repository#repository-configuration
 name: Yordi's Home Assistant Add-ons
 url: https://github.com/yp28/homeassistant-addons
 maintainer: Yordi Pauptit <yordi@paupt.it>
