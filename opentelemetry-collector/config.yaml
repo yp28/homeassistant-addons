@@ -1,0 +1,15 @@
+name: OpenTelemetry Collector
+description: This add-on runs OpenTelemetry Collector.
+version: '0.136.0'
+slug: opentelemetry_collector
+init: false
+arch:
+  - aarch64
+  - amd64
+  - armv7
+  - i386
+map:
+  - type: homeassistant_config
+    read_only: True
+  - type: addon_config
+    read_only: True
