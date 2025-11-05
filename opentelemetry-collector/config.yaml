@@ -1,6 +1,6 @@
 name: OpenTelemetry Collector
 description: This add-on runs OpenTelemetry Collector.
-version: v1.0.3
+version: v1.0.4
 slug: opentelemetry_collector
 init: false
 arch:
