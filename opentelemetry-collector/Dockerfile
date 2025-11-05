@@ -10,9 +10,5 @@ RUN apt update && \
 
 COPY --from=opentelemetry /otelcol-contrib /otelcol-contrib
 
-ARG USER_UID=10001
-ARG USER_GID=10001
-USER ${USER_UID}:${USER_GID}
-
 ENTRYPOINT ["/otelcol-contrib"]
 CMD ["--config", "/etc/otelcol-contrib/config.yaml"]
