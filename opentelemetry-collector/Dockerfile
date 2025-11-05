@@ -1,6 +1,6 @@
 FROM ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib:0.139.0 AS opentelemetry
 
-FROM ubuntu:latest
+FROM debian:13-slim
 
 RUN groupadd --system --gid 10001 opentelemetry && \
     useradd --system --uid 10001 --gid opentelemetry opentelemetry
