@@ -6,7 +6,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Europe/Amsterdam
 
 RUN apt update && \
-  apt install systemd -y
+  apt install -y \
+    systemd \
+    ca-certificates
 
 COPY --from=opentelemetry /otelcol-contrib /otelcol-contrib
 

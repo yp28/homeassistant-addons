@@ -10,6 +10,18 @@ receivers:
         enabled: true
   journald:
     directory: /var/log/journal
+    operators:
+      - type: move
+        from: body
+        to: attributes["body"]
+      - type: flatten
+        field: attributes["body"]
+      - type: move
+        from: attributes["MESSAGE"]
+        to: body
+      - type: add
+        field: service.name
+        value: homeassistant
 
 processors:
   batch:
