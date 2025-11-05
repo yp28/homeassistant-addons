@@ -1,6 +1,6 @@
 name: OpenTelemetry Collector
 description: This add-on runs OpenTelemetry Collector.
-version: v1.0.0
+version: v1.0.1
 slug: opentelemetry_collector
 init: false
 arch:
@@ -9,10 +9,8 @@ arch:
   - armv7
   - i386
 map:
-  - type: homeassistant_config
-    read_only: True
-  - type: all_addon_configs
-    read_only: True
   - type: addon_config
     read_only: True
     path: /etc/otelcol-contrib/
+journald: true
+docker_api: true

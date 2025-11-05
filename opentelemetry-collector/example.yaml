@@ -2,23 +2,32 @@ extensions:
   health_check:
 
 receivers:
-  filelog:
-    include:
-      - /homeassistant_config/*.log
-      - /all_addon_configs/**/*.log
+  docker_stats:
+    metrics:
+      container.cpu.percent:
+        enabled: false
+      container.cpu.utilization:
+        enabled: true
+  journald:
+    directory: /var/log/journal
 
 processors:
   batch:
 
 exporters:
   debug:
-    verbosity: detailed
+    verbosity: basic
+  otlphttp:
+    endpoint: https://otel.example.com
 
 service:
   pipelines:
     logs:
-      receivers: [filelog]
+      receivers: [journald]
       processors: [batch]
-      exporters: [debug]
-
+      exporters: [debug, otlphttp]
+    metrics:
+      receivers: [docker_stats]
+      processors: [batch]
+      exporters: [debug, otlphttp]
   extensions: [health_check]
