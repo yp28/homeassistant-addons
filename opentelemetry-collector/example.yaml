@@ -4,10 +4,6 @@ extensions:
 receivers:
   docker_stats:
     metrics:
-      container.cpu.percent:
-        enabled: false
-      container.cpu.utilization:
-        enabled: true
   journald:
     directory: /var/log/journal
     operators:
@@ -19,9 +15,6 @@ receivers:
       - type: move
         from: attributes["MESSAGE"]
         to: body
-      - type: add
-        field: service.name
-        value: homeassistant
 
 processors:
   batch:
